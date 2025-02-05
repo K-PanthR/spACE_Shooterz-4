@@ -83,6 +83,7 @@ def update():
         
         for bullet in bullets:
             if enemy.colliderect(bullet):
+                sounds.find_money.play()  
                 bullets.remove(bullet)
                 enemies.remove(enemy)
                 score  += 100
@@ -101,6 +102,7 @@ def update():
 def draw():
     screen.clear()
     screen.fill(BLUE)
+    screen.blit("starry_sky" , (0,0))
     for bullet in bullets:
         bullet.draw()
     for bug in enemies:
@@ -109,6 +111,6 @@ def draw():
         ship.draw()
     display_score()
     if len(enemies) == 0:
-        ship.gameover() 
+        ship_gameover() 
 
 pgzrun.go()
